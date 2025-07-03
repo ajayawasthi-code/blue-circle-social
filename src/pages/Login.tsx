@@ -22,9 +22,9 @@ const Login = () => {
     setTimeout(() => {
       toast({
         title: "Welcome back!",
-        description: "You have successfully logged in.",
+        description: "You have successfully logged in to HealthConnect.",
       });
-      navigate("/home");
+      navigate("/health");
       setIsLoading(false);
     }, 1000);
   };
@@ -33,14 +33,14 @@ const Login = () => {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <Link to="/" className="text-3xl font-bold text-primary">SocialConnect</Link>
-          <p className="text-gray-600 mt-2">Connect with friends and the world around you</p>
+          <Link to="/" className="text-3xl font-bold text-primary">HealthConnect</Link>
+          <p className="text-gray-600 mt-2">Your comprehensive health management platform</p>
         </div>
 
         <Card className="shadow-xl rounded-2xl">
           <CardHeader className="text-center">
             <CardTitle className="text-2xl">Welcome Back</CardTitle>
-            <CardDescription>Sign in to your account to continue</CardDescription>
+            <CardDescription>Sign in to access your health dashboard</CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">

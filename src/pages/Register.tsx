@@ -44,9 +44,9 @@ const Register = () => {
     setTimeout(() => {
       toast({
         title: "Account created!",
-        description: "Welcome to SocialConnect! You can now log in.",
+        description: "Welcome to HealthConnect! You can now access your health dashboard.",
       });
-      navigate("/login");
+      navigate("/health");
       setIsLoading(false);
     }, 1000);
   };
@@ -55,14 +55,14 @@ const Register = () => {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <Link to="/" className="text-3xl font-bold text-primary">SocialConnect</Link>
-          <p className="text-gray-600 mt-2">Connect with friends and the world around you</p>
+          <Link to="/" className="text-3xl font-bold text-primary">HealthConnect</Link>
+          <p className="text-gray-600 mt-2">Your comprehensive health management platform</p>
         </div>
 
         <Card className="shadow-xl rounded-2xl">
           <CardHeader className="text-center">
             <CardTitle className="text-2xl">Create Account</CardTitle>
-            <CardDescription>Join SocialConnect today</CardDescription>
+            <CardDescription>Join HealthConnect today and take control of your health</CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">

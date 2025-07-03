@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Bell, Search, Users, LogOut } from "lucide-react";
+import { Bell, Search, Users, LogOut, Heart, Calendar, User2 } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -24,16 +24,41 @@ export const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/home" className="text-2xl font-bold text-primary">
-            SocialConnect
+          <Link to="/health" className="text-2xl font-bold text-primary">
+            HealthConnect
           </Link>
 
+          {/* Navigation Links */}
+          <div className="hidden md:flex items-center space-x-6">
+            <Link 
+              to="/health" 
+              className="flex items-center space-x-2 text-gray-600 hover:text-primary transition-colors"
+            >
+              <Heart className="w-5 h-5" />
+              <span>Dashboard</span>
+            </Link>
+            <Link 
+              to="/health/appointments" 
+              className="flex items-center space-x-2 text-gray-600 hover:text-primary transition-colors"
+            >
+              <Calendar className="w-5 h-5" />
+              <span>Appointments</span>
+            </Link>
+            <Link 
+              to="/friends" 
+              className="flex items-center space-x-2 text-gray-600 hover:text-primary transition-colors"
+            >
+              <Users className="w-5 h-5" />
+              <span>Community</span>
+            </Link>
+          </div>
+
           {/* Search Bar */}
-          <div className="hidden md:flex flex-1 max-w-md mx-8">
+          <div className="hidden lg:flex flex-1 max-w-md mx-8">
             <div className="relative w-full">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
               <Input
-                placeholder="Search SocialConnect"
+                placeholder="Search health records, doctors..."
                 className="pl-10 rounded-full bg-gray-100 border-0 focus:bg-white focus:ring-2 focus:ring-primary/20"
               />
             </div>
@@ -41,12 +66,6 @@ export const Header = () => {
 
           {/* Right Side Icons */}
           <div className="flex items-center space-x-4">
-            <Link to="/friends">
-              <Button variant="ghost" size="icon" className="rounded-full">
-                <Users className="w-5 h-5" />
-              </Button>
-            </Link>
-            
             <Button variant="ghost" size="icon" className="rounded-full">
               <Bell className="w-5 h-5" />
             </Button>
@@ -66,6 +85,17 @@ export const Header = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-56 bg-white border shadow-lg rounded-xl" align="end">
                 <DropdownMenuItem asChild>
+                  <Link to="/health/profile" className="cursor-pointer">
+                    <div className="flex items-center">
+                      <User2 className="w-4 h-4 mr-2" />
+                      <div>
+                        <p className="font-medium">Health Profile</p>
+                        <p className="text-sm text-gray-500">Manage your health info</p>
+                      </div>
+                    </div>
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
                   <Link to="/profile" className="cursor-pointer">
                     <div className="flex items-center">
                       <Avatar className="h-8 w-8 mr-2">
@@ -76,8 +106,8 @@ export const Header = () => {
                         <AvatarFallback>You</AvatarFallback>
                       </Avatar>
                       <div>
-                        <p className="font-medium">Your Profile</p>
-                        <p className="text-sm text-gray-500">View your profile</p>
+                        <p className="font-medium">Social Profile</p>
+                        <p className="text-sm text-gray-500">View your social profile</p>
                       </div>
                     </div>
                   </Link>
